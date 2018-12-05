@@ -16,7 +16,7 @@ function calculatePolymers(data) {
       const re = new RegExp(data.charAt(i), 'i')
       if(data.charAt(i + 1).match(re)) {
         data = data.substr(0, i) + data.substr(i + 2, data.length - 1)
-        i = i - 2 < 0 ? 0 : i - 2
+        i = i - 1 < 0 ? 0 : i - 1
         continue
       }
     }
