@@ -17,12 +17,9 @@ function removePolymers(data) {
     }
   })
 
-  console.log(unitMap)
-
   let shortestPolymerLength = Infinity
 
   for(unit in unitMap) {
-    console.log('Going through unit', unit)
     const filteredData = data
                           .split("")
                           .filter( char => !(char === unitMap[unit][0] || char === unitMap[unit][1]))
