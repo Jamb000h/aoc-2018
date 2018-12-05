@@ -3,7 +3,8 @@ const fs = require('fs')
 
 fs.readFile('input.txt', (err, data) => {
     if (err) throw err
-    removePolymers(data.toString())
+    console.time('removePolymers')
+    removePolymers(calculatePolymers(data.toString()))
 })
 
 /* Solution */
@@ -24,13 +25,13 @@ function removePolymers(data) {
                           .split("")
                           .filter( char => !(char === unitMap[unit][0] || char === unitMap[unit][1]))
                           .join("")
-    const filteredPolymerLength = calculatePolymers(filteredData)
+    const filteredPolymerLength = calculatePolymers(filteredData).length
 
     if(filteredPolymerLength < shortestPolymerLength) {
       shortestPolymerLength = filteredPolymerLength
     }
   }
-
+  console.timeEnd('removePolymers')
   console.log(shortestPolymerLength)
 
 }
@@ -50,5 +51,5 @@ function calculatePolymers(data) {
     i++
   }
 
-  return data.length
+  return data
 }
