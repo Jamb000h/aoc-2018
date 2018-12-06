@@ -106,7 +106,6 @@ function calculateAreas(data) {
   }
   // Remove points from coord list that go to infinity
   const filteredCoords = coords.filter(coord => !toInfinity.includes(coord))
-  console.log(filteredCoords)
   // Finally go through each coordinate from the data point and calculate sum of closest distances to other points
   let largestSum = 0
   for(coord in filteredCoords) {
@@ -121,7 +120,6 @@ function calculateAreas(data) {
 
     if(sum > largestSum) largestSum = sum
   }
-
   console.log(largestSum) // <-- this should be the result
 }
 
