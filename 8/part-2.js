@@ -8,7 +8,6 @@ fs.readFile('input.txt', (err, data) => {
 
 /* Solution */
 
-let metadataTotal = 0
 let index = 0
 
 function parseNodes(data) {
