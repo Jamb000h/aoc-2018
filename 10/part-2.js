@@ -29,8 +29,9 @@ function calculateMessage(data) {
     
   })
 
-  let seconds = 0
 
+  let smallest = Infinity
+  let seconds = 0
   while(true) {
     seconds += 1
     points = points.map(updatePosition)
@@ -39,9 +40,11 @@ function calculateMessage(data) {
     const bottom = Math.max(...points.map(point => point.y))
     const left = Math.min(...points.map(point => point.x))
     const right = Math.max(...points.map(point => point.x))
-    
-    if(Math.abs(bottom) - Math.abs(top) < 13 && Math.abs(right) - Math.abs(left) < 100) {
-      console.log(seconds) // < This is the result
+
+    if ((Math.abs(bottom) + Math.abs(top)) * (Math.abs(left) + Math.abs(right)) < smallest) {
+      smallest = (Math.abs(bottom) + Math.abs(top)) * (Math.abs(left) + Math.abs(right))
+    } else if ((Math.abs(bottom) + Math.abs(top)) * (Math.abs(left) + Math.abs(right)) > smallest) {
+      console.log(seconds) // <-- This is the result
       break
     }
   }
