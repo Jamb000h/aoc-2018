@@ -43,10 +43,10 @@ function calculateMessage(data) {
     if ((Math.abs(bottom) + Math.abs(top)) * (Math.abs(left) + Math.abs(right)) < smallest) {
       smallest = (Math.abs(bottom) + Math.abs(top)) * (Math.abs(left) + Math.abs(right))
     } else if ((Math.abs(bottom) + Math.abs(top)) * (Math.abs(left) + Math.abs(right)) > smallest) {
-      
-      for(let i = top; i <= bottom; i++) {
+
+      for(let i = top - 1; i <= bottom + 1; i++) {
         let row = ''
-        for(let j = left; j <= right; j++) {
+        for(let j = left - 1; j <= right + 1; j++) {
           let found = false
           points.forEach(point => {
             if(point.x === j && point.y === i) {
