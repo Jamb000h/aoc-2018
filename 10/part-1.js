@@ -55,8 +55,8 @@ function calculateMessage(data) {
           row += '.'
         }
         console.log(row) // <-- This is the result
-        break
       }
+      break
     }
   }
 }
